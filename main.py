@@ -1,21 +1,30 @@
-
+import flask
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return "welcome to my website"
-@app.route("/")
+    return "<h1>Hello</h1>"
 
 @app.route("/contact")
-def ContactPage():
-    return render_template()
-@app.route("/Home")
-def Home():
-    return "Home Page"
-@app.route("/Gallary")
-def Gallary():
-    return " gallary"
-if __name__ == '__main__':
-    app.main()
+def contact():
+    return flask.render_template("contact.html")
+
+
+@app.route("/contact")
+def ContactUs():
+    return render_template("Admin.html")
+
+
+@app.route("/Search")
+def Search():
+    return render_template("Search.html")
+
+@app.route("/delete")
+def Delete():
+    return render_template("delete.html")
+
+
+if __name__ == "__main__":
+    app.run()
